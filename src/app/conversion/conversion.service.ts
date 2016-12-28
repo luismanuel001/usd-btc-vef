@@ -8,14 +8,14 @@ export class ConversionService {
   private btcPriceInUsd = 900;
   private btcPriceInVef = 2700000;
   private refreshInterval = 5 * 1000; // In seconds 
-  private btcPriceInUsdUrl = 'https://api.coinbase.com/v2/prices/buy?currency=USD';
+  private btcPriceInUsdUrl = 'https://api.gdax.com/products/BTC-USD/ticker';
   private btcPriceInVefUrl = 'https://api.blinktrade.com/api/v1/VEF/ticker?callback=JSONP_CALLBACK';
 
   constructor(private http: Http, private jsonp: Jsonp) { }
 
   getBtcPriceInUsd(): Observable<number> {
     return this.http.get(this.btcPriceInUsdUrl)
-      .map((res: Response) => res.json().data.amount)
+      .map((res: Response) => res.json().price)
       .catch(err => Observable.throw(err || 'Error getting btcPriceInUsd'));
   }
 

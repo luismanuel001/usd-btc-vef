@@ -1,16 +1,16 @@
 <form #f="ngForm" novalidate>
     
-  <md-input placeholder="USD" id="usd" name="usd" [(ngModel)]="usd">
+  <md-input placeholder="USD" id="usd" name="usd" [(ngModel)]="usd" (focus)="$event.target.select()">
     <md-hint align="end">
       {{(usd || 0) | currency:'USD':true:'1.2-2'}}
     </md-hint>
   </md-input>
-  <md-input placeholder="BTC" id="btc" name="btc" [(ngModel)]="btc">
+  <md-input placeholder="BTC" id="btc" name="btc" [(ngModel)]="btc" (focus)="$event.target.select()">
     <md-hint align="end">
       {{(btc || 0) | currency:'BTC':true:'1.2-6'}}
     </md-hint>
   </md-input>
-  <md-input placeholder="VEF" id="vef" name="vef" [(ngModel)]="vef">
+  <md-input placeholder="VEF" id="vef" name="vef" [(ngModel)]="vef" (focus)="$event.target.select()">
     <md-hint align="end">
       {{(vef || 0) | currency:'VEF':true:'1.2-2'}}
     </md-hint>

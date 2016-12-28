@@ -16,7 +16,7 @@ export class ConversionComponent implements OnInit {
   _btcPriceInVef: number;
 
   get usd(): number {
-      return this._usd;
+      return this._usd || 0;
   }
 
   set usd(value: number) {
@@ -26,7 +26,7 @@ export class ConversionComponent implements OnInit {
   }
 
   get btc(): number {
-      return this._btc;
+      return this._btc || 0;
   }
 
   set btc(value: number) {
@@ -34,7 +34,7 @@ export class ConversionComponent implements OnInit {
   }
 
   get vef(): number {
-      return this._vef;
+      return this._vef || 0;
   }
 
   set vef(value: number) {
@@ -66,6 +66,7 @@ export class ConversionComponent implements OnInit {
         .subscribe( prices => {
             this._btcPriceInUsd = prices[0];
             this._btcPriceInVef = prices[1];
+            this.usd = this.usd;
         });
   }
 
