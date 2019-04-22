@@ -1,10 +1,10 @@
-import { UsdBtcVefPage } from './app.po';
+import { UsdBtcVesPage } from './app.po';
 
-describe('usd-btc-vef App', function() {
-  let page: UsdBtcVefPage;
+describe('usd-btc-ves App', function() {
+  let page: UsdBtcVesPage;
 
   beforeEach(() => {
-    page = new UsdBtcVefPage();
+    page = new UsdBtcVesPage();
   });
 
   it('should display message saying app works', () => {

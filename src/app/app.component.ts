@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
   // providers: [ConversionService]
 })
 export class AppComponent {
-  title = 'USD to BTC to VEF';
+  title = 'USD to BTC to VES';
 }

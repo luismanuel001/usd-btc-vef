@@ -1,5 +1,5 @@
 <form #f="ngForm" novalidate>
-    
+
   <md-input placeholder="USD" id="usd" name="usd" [(ngModel)]="usd" (focus)="$event.target.select()">
     <md-hint align="end">
       {{(usd || 0) | currency:'USD':true:'1.2-2'}}
@@ -10,13 +10,13 @@
       {{(btc || 0) | currency:'BTC':true:'1.2-6'}}
     </md-hint>
   </md-input>
-  <md-input placeholder="VEF" id="vef" name="vef" [(ngModel)]="vef" (focus)="$event.target.select()">
+  <md-input placeholder="VES" id="ves" name="ves" [(ngModel)]="ves" (focus)="$event.target.select()">
     <md-hint align="end">
-      {{(vef || 0) | currency:'VEF':true:'1.2-2'}}
+      {{(ves || 0) | currency:'VES':true:'1.2-2'}}
     </md-hint>
   </md-input>
 </form>
 
 <p>1 BTC = {{ ( btcPriceInUsd ) | number:'1.2-2' }} USD</p>
-<p>1 BTC = {{ ( btcPriceInVef ) | number:'1.2-2' }} VEF</p>
-<p>1 USD = {{ ( btcPriceInVef / btcPriceInUsd ) | number:'1.2-2' }} VEF</p>
+<p>1 BTC = {{ ( btcPriceInVes ) | number:'1.2-2' }} VES</p>
+<p>1 USD = {{ ( btcPriceInVes / btcPriceInUsd ) | number:'1.2-2' }} VES</p>

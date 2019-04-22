@@ -6,10 +6,10 @@ import { Observable } from 'rxjs/Rx';
 export class ConversionService {
 
   private btcPriceInUsd = 900;
-  private btcPriceInVef = 2700000;
+  private btcPriceInVes = 2700000;
   private refreshInterval = 5 * 1000; // In seconds
   private btcPriceInUsdUrl = 'https://cors-anywhere.herokuapp.com/localbitcoins.com/bitcoinaverage/ticker-all-currencies/';
-  private btcPriceInVefUrl = 'https://cors-anywhere.herokuapp.com/localbitcoins.com/bitcoinaverage/ticker-all-currencies/';
+  private btcPriceInVesUrl = 'https://cors-anywhere.herokuapp.com/localbitcoins.com/bitcoinaverage/ticker-all-currencies/';
 
   constructor(private http: Http, private jsonp: Jsonp) { }
 
@@ -19,16 +19,16 @@ export class ConversionService {
       .catch(err => Observable.throw(err || 'Error getting btcPriceInUsd'));
   }
 
-  getBtcPriceInVef(): Observable<number> {
-    return this.http.get(this.btcPriceInVefUrl)
-      .map((res: Response) => res.json().VEF['avg_6h'])
-      .catch(err => Observable.throw(err || 'Error getting btcPriceInVef'));
+  getBtcPriceInVes(): Observable<number> {
+    return this.http.get(this.btcPriceInVesUrl)
+      .map((res: Response) => res.json().VES['avg_6h'])
+      .catch(err => Observable.throw(err || 'Error getting btcPriceInVes'));
   }
 
   getBtcPrices(interval?: number): Observable<[number, number]> {
     let observable: Observable<[number, number]> = Observable.forkJoin(
       this.getBtcPriceInUsd(),
-      this.getBtcPriceInVef()
+      this.getBtcPriceInVes()
     );
 
     if (interval) {
