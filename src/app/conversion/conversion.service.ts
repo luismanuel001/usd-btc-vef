@@ -15,13 +15,13 @@ export class ConversionService {
 
   getBtcPriceInUsd(): Observable<number> {
     return this.http.get(this.btcPriceInUsdUrl)
-      .map((res: Response) => res.json().USD['avg_6h'])
+      .map((res: Response) => res.json().USD['avg_1h'] || res.json().USD['avg_6h'])
       .catch(err => Observable.throw(err || 'Error getting btcPriceInUsd'));
   }
 
   getBtcPriceInVes(): Observable<number> {
     return this.http.get(this.btcPriceInVesUrl)
-      .map((res: Response) => res.json().VES['avg_6h'])
+      .map((res: Response) => res.json().VES['avg_1h'] || res.json().VES['avg_6h'])
       .catch(err => Observable.throw(err || 'Error getting btcPriceInVes'));
   }
 
